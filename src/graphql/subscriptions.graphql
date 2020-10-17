@@ -1,0 +1,73 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateDepartment {
+  onCreateDepartment {
+    id
+    name
+    manager {
+      id
+      name
+      age
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateDepartment {
+  onUpdateDepartment {
+    id
+    name
+    manager {
+      id
+      name
+      age
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteDepartment {
+  onDeleteDepartment {
+    id
+    name
+    manager {
+      id
+      name
+      age
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateEmployee {
+  onCreateEmployee {
+    id
+    name
+    age
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateEmployee {
+  onUpdateEmployee {
+    id
+    name
+    age
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteEmployee {
+  onDeleteEmployee {
+    id
+    name
+    age
+    createdAt
+    updatedAt
+  }
+}

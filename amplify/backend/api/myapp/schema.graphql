@@ -1,0 +1,19 @@
+type Department @model
+@auth(rules: [{ allow: owner }])
+{
+  id: ID!
+  name: String
+  # one to one relationship
+  manager: Employee @connection
+  # one to many relationship with named connection
+  employees: [Employee] @connection(name: "DepartmentEmployees")
+}
+
+type Employee @model 
+@auth(rules: [{ allow: owner }])
+{
+  id: ID!
+  name: String
+  age: Int
+  department: Department @connection(name: "DepartmentEmployees")
+}
