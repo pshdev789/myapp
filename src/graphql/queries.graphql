@@ -7,8 +7,27 @@ query GetDepartment($id: ID!) {
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -30,6 +49,9 @@ query ListDepartments(
         createdAt
         updatedAt
       }
+      employees {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -41,6 +63,30 @@ query GetEmployee($id: ID!) {
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
@@ -55,6 +101,108 @@ query ListEmployees(
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetEmployeeProjects($id: ID!) {
+  getEmployeeProjects(id: $id) {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListEmployeeProjectss(
+  $filter: ModelEmployeeProjectsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEmployeeProjectss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      employee {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      project {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetProject($id: ID!) {
+  getProject(id: $id) {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListProjects(
+  $filter: ModelProjectFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listProjects(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      employees {
+        nextToken
+      }
       createdAt
       updatedAt
     }

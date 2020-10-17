@@ -7,8 +7,27 @@ subscription OnCreateDepartment {
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -22,8 +41,27 @@ subscription OnUpdateDepartment {
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -37,8 +75,27 @@ subscription OnDeleteDepartment {
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -49,6 +106,30 @@ subscription OnCreateEmployee {
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
@@ -58,6 +139,30 @@ subscription OnUpdateEmployee {
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
@@ -67,6 +172,174 @@ subscription OnDeleteEmployee {
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateEmployeeProjects {
+  onCreateEmployeeProjects {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateEmployeeProjects {
+  onUpdateEmployeeProjects {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteEmployeeProjects {
+  onDeleteEmployeeProjects {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateProject {
+  onCreateProject {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateProject {
+  onUpdateProject {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteProject {
+  onDeleteProject {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }

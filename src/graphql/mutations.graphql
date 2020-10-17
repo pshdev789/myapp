@@ -10,8 +10,27 @@ mutation CreateDepartment(
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -28,8 +47,27 @@ mutation UpdateDepartment(
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -46,8 +84,27 @@ mutation DeleteDepartment(
       id
       name
       age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+    employees {
+      items {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -61,6 +118,30 @@ mutation CreateEmployee(
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
@@ -73,6 +154,30 @@ mutation UpdateEmployee(
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
@@ -85,6 +190,192 @@ mutation DeleteEmployee(
     id
     name
     age
+    department {
+      id
+      name
+      manager {
+        id
+        name
+        age
+        createdAt
+        updatedAt
+      }
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    projects {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateEmployeeProjects(
+  $input: CreateEmployeeProjectsInput!
+  $condition: ModelEmployeeProjectsConditionInput
+) {
+  createEmployeeProjects(input: $input, condition: $condition) {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateEmployeeProjects(
+  $input: UpdateEmployeeProjectsInput!
+  $condition: ModelEmployeeProjectsConditionInput
+) {
+  updateEmployeeProjects(input: $input, condition: $condition) {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteEmployeeProjects(
+  $input: DeleteEmployeeProjectsInput!
+  $condition: ModelEmployeeProjectsConditionInput
+) {
+  deleteEmployeeProjects(input: $input, condition: $condition) {
+    id
+    employee {
+      id
+      name
+      age
+      department {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      projects {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    project {
+      id
+      name
+      employees {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateProject(
+  $input: CreateProjectInput!
+  $condition: ModelProjectConditionInput
+) {
+  createProject(input: $input, condition: $condition) {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateProject(
+  $input: UpdateProjectInput!
+  $condition: ModelProjectConditionInput
+) {
+  updateProject(input: $input, condition: $condition) {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteProject(
+  $input: DeleteProjectInput!
+  $condition: ModelProjectConditionInput
+) {
+  deleteProject(input: $input, condition: $condition) {
+    id
+    name
+    employees {
+      items {
+        id
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
