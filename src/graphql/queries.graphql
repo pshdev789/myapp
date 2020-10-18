@@ -116,65 +116,6 @@ query ListEmployees(
     nextToken
   }
 }
-query GetEmployeeProjects($id: ID!) {
-  getEmployeeProjects(id: $id) {
-    id
-    employee {
-      id
-      name
-      age
-      department {
-        id
-        name
-        createdAt
-        updatedAt
-      }
-      projects {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    project {
-      id
-      name
-      employees {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    createdAt
-    updatedAt
-  }
-}
-query ListEmployeeProjectss(
-  $filter: ModelEmployeeProjectsFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listEmployeeProjectss(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      employee {
-        id
-        name
-        age
-        createdAt
-        updatedAt
-      }
-      project {
-        id
-        name
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
 query GetProject($id: ID!) {
   getProject(id: $id) {
     id

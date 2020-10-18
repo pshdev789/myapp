@@ -15,7 +15,7 @@ type Employee @model{
   projects: [EmployeeProjects] @connection(name:"EmployeeProjects")
 }
 
-type EmployeeProjects @model{
+type EmployeeProjects @model (queries: null){
   id: ID!
   employee: Employee @connection(name:"EmployeeProjects")
   project: Project @connection(name:"ProjectEmployees")
